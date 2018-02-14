@@ -2,7 +2,7 @@
 %h1 All Movies
 
 %table#movies
-    %thead
+  %thead
     %tr
       %th{:class => ("hilite" if params[:sort] == "title")}= link_to 'Movie Title', movies_path(:sort => 'title'), :id => 'title_header'
       %th Rating
