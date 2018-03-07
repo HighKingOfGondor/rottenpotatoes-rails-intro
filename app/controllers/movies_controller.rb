@@ -24,9 +24,9 @@ class MoviesController < ApplicationController
     #redirect flag. If signalled, it will use flash.keep and redirect.
     @redirect = false
 
-    #original init of movies and checkboxes. Still works, I think?
+    #new init of movies. WTF was that?
     @movies = Movie.all
-    @redirect = 0
+    @redirect = false
     if(@checked != nil)
       @movies = @movies.find_all{ |m| @checked.has_key?(m.rating) and  @checked[m.rating]==true}      
     end
