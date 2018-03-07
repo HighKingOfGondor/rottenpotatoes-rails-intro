@@ -25,10 +25,10 @@ class MoviesController < ApplicationController
     @redirect = false
 
     #original init of movies and checkboxes. Still works, I think?
-    if params[:sort]
-      @movies = Movie.order(params[:sort])
-    else
-      @movies = Movie.where(:rating => @checked)
+    @movies = Movie.all
+    @redirect = 0
+    if(@checked != nil)
+      @movies = @movies.find_all{ |m| @checked.has_key?(m.rating) and  @checked[m.rating]==true}      
     end
     
     #current session override for sorting
