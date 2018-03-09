@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
     @redirect = false
 
     #new init of movies. WTF was that?
-
+    #did not select the movies, and instead passed them. This select function fixes that.
     @movies = Movie.all
     @redirect = false
     if(@checked != nil)
