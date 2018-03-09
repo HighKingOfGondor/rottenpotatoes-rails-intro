@@ -25,6 +25,7 @@ class MoviesController < ApplicationController
     @redirect = false
 
     #new init of movies. WTF was that?
+    #the entire problem stemmed from this deleted line. Sobbing.
     @movies = Movie.all
     @redirect = false
     if params[:sort]
