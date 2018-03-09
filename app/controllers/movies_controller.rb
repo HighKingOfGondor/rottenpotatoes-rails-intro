@@ -29,7 +29,7 @@ class MoviesController < ApplicationController
     @movies = Movie.all
     @redirect = false
     if(@checked != nil)
-      @movies = @movies.select { |m| @checked.key?(m.rating) and  @checked[m.rating]==true}      
+      @movies = @movies.select { |x| @checked.key?(x.rating) and  @checked[x.rating]==true}      
     end
     
     #current session override for sorting
