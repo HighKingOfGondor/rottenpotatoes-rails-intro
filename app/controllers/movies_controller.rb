@@ -27,8 +27,10 @@ class MoviesController < ApplicationController
     #new init of movies. WTF was that?
     @movies = Movie.all
     @redirect = false
-    if(@checked != nil)
-      @movies = @movies.find_all{ |m| @checked.has_key?(m.rating) and  @checked[m.rating]==true}      
+    if params[:sort]
+      @movies = Movie.order(params[:sort])
+    else
+      @movies = Movie.where(:rating => @checked)
     end
     
     #current session override for sorting
