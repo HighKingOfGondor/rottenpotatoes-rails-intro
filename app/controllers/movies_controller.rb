@@ -25,13 +25,11 @@ class MoviesController < ApplicationController
     @redirect = false
 
     #new init of movies. WTF was that?
-    #the entire problem stemmed from this deleted line. Sobbing.
+
     @movies = Movie.all
     @redirect = false
-    if params[:sort]
-      @movies = Movie.order(params[:sort])
-    else
-      @movies = Movie.where(:rating => @checked)
+    if(@checked != nil)
+      @movies = @movies.select { |m| @checked.key?(m.rating) and  @checked[m.rating]==true}      
     end
     
     #current session override for sorting
